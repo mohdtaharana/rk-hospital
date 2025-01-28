@@ -1301,49 +1301,7 @@ mm.add("(max-width: 480px)", () => {
              
            }
 
-          //  const track = document.querySelector('.carousel-track');
-          //  const itemss = document.querySelectorAll('.carousel-item');
-          //  const activeServiceElement = document.querySelector('.active_service'); // Select the element where active_service text is displayed
-          //  let activeIndex = 0;
-           
-          //  // Add unique data attributes or identifiers to your carousel items
-          //  const services = ["Surgery", "Orthopedic", "ENT", "Pediatric","Medicine"]; // Replace with actual names
-           
-          //  // Function to update active item and center it
-          //  function updateCarousel() {
-          //   itemss.forEach((item, index) => {
-          //     if (index === activeIndex) {
-          //       item.classList.add('active');
-          //       const offset = -(item.offsetWidth + 10) * activeIndex + (window.innerWidth - item.offsetWidth) / 2;
-          //       track.style.transform = `translateX(${offset}px)`;
-          
-          //       // Update the active_service text
-          //       const activeService = services[index];
-          //       activeServiceElement.textContent = activeService;
-          
-          //       // Update the active_service2 text
-          //       updateActiveService2(activeService);
-          //     } else {
-          //       item.classList.remove('active');
-          //     }
-          //   });
-          // }
-          
-           
-          //  // Event listeners for buttons
-          //  document.querySelector('.prev-btn').addEventListener('click', () => {
-          //    activeIndex = (activeIndex - 1 + itemss.length) % itemss.length;
-          //    updateCarousel();
-          //  });
-           
-          //  document.querySelector('.next-btn').addEventListener('click', () => {
-          //    activeIndex = (activeIndex + 1) % itemss.length;
-          //    updateCarousel();
-          //  });
-           
-          //  // Initial setup
-          //  updateCarousel();
-           
+      
       
 
 
