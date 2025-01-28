@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <style>
+    :root {
+      --font-primary: "Montserrat", serif;
+      --font-secondary: 'Lora', serif;
+      --font-mono: 'Courier New', monospace;
+    }
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .main{
+      width: 100%;
+      height: 100%;
+      padding: 5vw 20vw;
+      font-family: var(--font-primary);
+      background-color:#cae8f8;
+    }
+    .prebottom h1,.center h1, .bottom h1 {
+      margin-bottom: 20px;
+    }
+    .impatient{
+      width: 100%;
+      /* height:2vh; */
+      padding:3vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-direction: column;
+      background-color:#cae8f8;
+      color: white;
+    }
+    .top{
+      width: 100%;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .top h1{
+      text-transform: uppercase;
+    }
+    .left{
+      display: flex;
+      height: 100%;
+      flex-basis: 50%;
+      background-color:#4f5765;
+      border-radius:20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: 25px;
+    }
+    .right{
+      display: flex;
+      flex-basis: 50%;
+      font-size: 25px;
+      height: 100%;
+      background-color:#348061;
+      border-radius:30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding:20px;
+    }
+    .center{
+      width: 100%;
+      height:50vh;
+      background-color:#978677;
+      border-radius:30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding:20px;
+    }
+    .prebottom{
+      background-color:#787aae;
+      width: 100%;
+      height:60vh;
+      border-radius:30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding:30px;
+      gap: 80px;
+    }
+    .bottom{
+      width: 100%;
+      height: 170vh;
+      display: flex;
+      /* background-color: red; */
+      align-items: center;
+      justify-content: space-around;
+      gap: 20px;
+      
+    }
+    .mid{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 100px;
+    }
+    .mid_left{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .mid_right{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .line{
+      width: 2px;
+      height: 15%;
+      background-color:#fff;
+      position: absolute;
+    }
+    .bt_left{
+      display: flex;
+      height: 100%;
+      flex-basis: 48%;
+      background-color:#4f5765;
+      border-radius:20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px;
+      line-height: 30px;
+    }
+    .bt_right{
+      line-height: 30px;
+      padding: 40px;
+      display: flex;
+      flex-basis: 48%;
+      /* font-size: 25px; */
+      height: 100%;
+      background-color:#348061;
+      border-radius:30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      /* padding:20px; */
+    }
+
+
+  
+
+
+
+
+
+  @media screen and (max-width: 480px) {
+    .main {
+padding: 0px;
+overflow-x: hidden;
+
+    }
+
+    .impatient {
+    padding: 0px;
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      align-self:center;
+      padding: 15px;
+      width: 100%;
+      height:460vh;
+    }
+
+    .top {
+      flex-direction: column;
+      height:60vh;
+      gap: 10px;
+      /* margin-bottom: 10vh; */
+      width: 100%;
+
+      /* background-color: red; */
+    }
+
+    .right {
+      flex-basis: 100%;
+      font-size: 20px;
+      padding: 15px;
+      height: 50vh;
+    }
+    .left {
+      font-size: 20px;
+      width: 100%;
+
+      padding: 15px;
+    }
+
+    .center {
+      font-size: 18px;
+      height:60vh;
+      width: 100%;
+      /* background-color: red; */
+
+    }
+
+    .bottom {
+      font-size: 18px;
+      width: 100%;
+      /* padding: 25px; */
+      height: 240vh;
+      /* margin-bottom:13vh; */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bottom ul {
+      font-size: 16px;
+    }
+    .prebottom{
+      width:100%;
+      height:60vh;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+    
+     /* Responsive Styles for 375px */
+     @media screen and (max-width: 375px) {
+    .main {
+padding: 0px;
+overflow-x: hidden;
+
+    }
+
+    .impatient {
+    padding: 0px;
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      align-self:center;
+      padding: 15px;
+      width: 100%;
+      height:auto;
+    }
+
+    .top {
+      flex-direction: column;
+      height:60vh;
+      gap: 10px;
+      /* margin-bottom: 10vh; */
+      width: 100%;
+
+      /* background-color: red; */
+    }
+
+    .right {
+      flex-basis: 100%;
+      font-size: 20px;
+      padding: 15px;
+      height: 50vh;
+    }
+    .left {
+      font-size: 20px;
+      width: 100%;
+
+      padding: 15px;
+    }
+
+    .center {
+      font-size: 18px;
+      height:100vh;
+      width: 100%;
+      /* background-color: red; */
+
+    }
+
+    .bottom {
+      font-size: 18px;
+      width: 100%;
+      /* padding: 25px; */
+      height: 400vh;
+      /* margin-bottom:13vh; */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bottom ul {
+      font-size: 16px;
+    }
+    .prebottom{
+      width:100%;
+      height:90vh;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="impatient">
+      <div class="top">
+        <div class="left">
+          <h1>visitors</h1>
+        </div>
+        <div class="right">
+          <p>
+            We believe that the presence of loved
+            ones can
+            significantly
+            enhance a patient's
+            recovery journey.</p>
+        </div>
+      </div>
+      <div class="center">
+        <h1> Supporting Patient Care and Safety</h1>
+        <p>
+          To ensure the best possible care environment for our patients while maintaining hospital safety standards, we have established clear guidelines for all visitors These protocols help create a healing atmosphere and protect the well-being of patients, staff, and visitors alike. Please carefully review and follow these essential Do's and Don'ts during your visit to support your loved one's recovery journey.
+        </p>
+      </div>
+      <div class="prebottom ">
+       <h1>Visiting hours</h1>
+       <div class="mid">
+        <div class="line"></div>
+        <div class="mid_left">
+          <p>morning</p>
+          <p>10:00 AM - 1:00 PM</p>
+        </div>
+        <div class="mid_right">
+          <p>evening</p>
+          <p>05:00 AM - 9:00 PM</p>
+        </div>
+       </div>
+       <p>For patients in the Intensive Care Unit & Isolation Room, special visiting hours and
+        guidelines apply. Please consult our staff for further details.</p>
+      </div>
+      <div class="bottom">
+        <div class="bt_left">
+          <h1>Do`s</h1>
+          <ul>
+            <li>Obtain permission from the hospital staff before bringing any items for the patient.</li>
+  <li>Follow all safety protocols and guidelines set by the hospital during your visit.</li>
+  <li>Wash and sanitize your hands before and after visiting a patient.</li>
+  <li>Speak in low tones to maintain a calm and quiet atmosphere in patient areas.</li>
+  <li>Dispose of waste, including tissues and disposable items, in designated bins.</li>
+  <li>Wear protective gear, such as masks or gowns, when advised by hospital staff.</li>
+  <li>Be considerate of other patients and their families by keeping conversations minimal in shared spaces.</li>
+  <li>Inform hospital staff if you notice anything unusual about the patient's condition.</li>
+  <li>Encourage and support the patient's recovery with positive interactions and gestures.</li>
+  <li>Respect the hospital's visiting hours and leave when requested by staff.</li>
+          </ul>
+          
+        </div>
+        <div class="bt_right">
+        <h1>
+          Don`ts
+        </h1>
+        <ul>
+          <li>Do not touch or move any medical equipment or supplies in the patient's room.</li>
+          <li>Avoid sitting on the patient's bed to prevent the spread of germs.</li>
+          <li>Do not bring small children into patient areas unless absolutely necessary.</li>
+          <li>Refrain from engaging in loud or disruptive activities during your visit.</li>
+          <li>Do not share personal items like phones, water bottles, or utensils with the patient.</li>
+          <li>Avoid congregating in hallways or blocking emergency pathways.</li>
+          <li>Do not enter restricted or staff-only areas without prior authorization.</li>
+          <li>Refrain from offering any medical advice or questioning the patient's prescribed treatment.</li>
+          <li>Do not visit the hospital if you are experiencing symptoms of illness that could be contagious.</li>
+          <li>Avoid bringing outside food, flowers, or gifts without prior approval from hospital staff.</li>
+        </ul>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // GSAP Animations
+
+      // GSAP Animations
+    // GSAP Animations with stagger
+gsap.from(".left, .right, .center, .prebottom, .bt_left, .bt_right", {
+  y: 100,
+  opacity: 0,
+  stagger: 0.2, // Adds a delay between each animation
+  duration: 1.5, // Duration of each animation
+  ease: "power2.out", // Smooth easing
+});
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+
+    /*Slider Classes*/
+    .cascade-slider_container {
+      position: relative;
+      width: 100%;
+      height:100vh;
+      overflow-x: hidden;
+    }
+    .cascade-slider_item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%) scale(0.3);
+      transition: all 1s ease;
+      opacity: 0;
+      z-index: -1;
+      text-align: center;
+    }
+    .cascade-slider_item.next {
+      left: 50%;
+      transform: translateY(-50%) translateX(-135%) scale(0.8);
+      filter: brightness(85%);
+      opacity: 1;
+      z-index: 1;
+    }
+    .cascade-slider_item.prev {
+      left: 50%;
+      transform: translateY(-50%) translateX(35%) scale(0.8);
+      filter: brightness(85%);
+      opacity: 1;
+      z-index: 1;
+    }
+    .cascade-slider_item.now {
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%) scale(1);
+      opacity: 1;
+      z-index: 5;
+    }
+    .cascade-slider_arrow {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      cursor: pointer;
+      z-index: 5;
+    }
+    .cascade-slider_arrow-left {
+      left: 20px;
+    }
+    .cascade-slider_arrow-right {
+      right: 20px;
+    }
+    .cascade-slider_arrow-left img {
+      height: 40px;
+      left: 40px;
+    }
+    .cascade-slider_arrow-right img {
+      height: 40px;
+      left: 40px;
+    }
+    .cascade-slider_nav {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      text-align: center;
+      z-index: 5;
+    }
+    .cascade-slider_dot {
+      display: inline-block;
+      width: 17px;
+      height: 17px;
+      border: 1px solid #4196EF;
+      margin: 3px;
+      transition: all 0.5s;
+      background: none;
+      list-style: none;
+      cursor: pointer;
+      border-radius: 50px;
+    }
+    .cascade-slider_dot:hover {
+      background: #2c8fab;
+    }
+    .cascade-slider_dot.cur {
+      background: #2c8fab;
+      width: 17px;
+      height: 17px;
+    }
+
+    /*Profile card classes*/
+    .card{
+      background-color:#fff;
+      color:#243C82;
+      width:450px;
+      height:300px;
+      border-radius:20px;
+      transition: all 1s 0s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    }
+    .photo{    
+      width:100%;
+      height:100%;
+    }
+    .photo img{
+      width:100%;
+      height: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+    .info{
+      display:inline-block;
+      width:50%;
+      height:100%;
+      text-align:center;
+    }
+    .info h2{
+      font-family:'Roboto';
+      text-transform:uppercase;
+      font-size: 26px;
+      color: #4196EF;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .subtitle{
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 98%;
+      text-align: center;
+      letter-spacing: 0.055em;
+      color: #243C82; 
+    }
+    .content{
+      font-family: Roboto;
+      font-weight: 300;
+    }
+    .button{
+      transform:translateX(23px) translateY(15px);
+      position:absolute;
+      padding:12px 17px;  
+      border-radius:30px;
+      color:#fff;
+      font-size:13px;
+      font-weight:500;
+      text-transform:uppercase;
+      text-decoration:none;
+      background-color:#243C82;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="cascade-slider_container" id="cascade-slider">
+    <div class="cascade-slider_slides">
+      <div class="cascade-slider_item">
+        <div class='card align'>
+          <div class='photo'>
+            <img src="/images/dr1.avif">
+          </div>
+        </div>
+      </div>
+      <div class="cascade-slider_item">
+        <div class='card align'>
+          <div class='photo'>
+            <img src="/images/dr2.jpg">
+          </div>
+        </div>
+      </div>
+      <div class="cascade-slider_item">
+        <div class='card align'>
+          <div class='photo'>
+            <img src="/images/dr3.jpeg">
+          </div>
+        </div>
+      </div>
+      <div class="cascade-slider_item">
+        <div class='card align'>
+          <div class='photo'>
+            <img src="/images/dr4.avif">
+          </div>
+        </div>
+      </div>
+      <div class="cascade-slider_item">
+        <div class='card align'>
+          <div class='photo'>
+            <img src="/images/hero-dr.jpg">
+          </div>
+        </div>
+      </div>
+      <div class="cascade-slider_item">
+        <div class='card align'>
+          <div class='photo'>
+            <img src="/images/dr4.avif">
+          </div>
+        </div>
+      </div>
+      <div class="cascade-slider_item">
+        <div class='card align'>
+          <div class='photo'>
+            <img src="/images/hero-dr.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ol class="cascade-slider_nav">
+      <li class="cascade-slider_dot cur"></li>
+      <li class="cascade-slider_dot"></li>
+      <li class="cascade-slider_dot"></li>
+      <li class="cascade-slider_dot"></li>
+      <li class="cascade-slider_dot"></li>
+      <li class="cascade-slider_dot"></li>
+      <li class="cascade-slider_dot"></li>
+    </ol>
+
+    <span class="cascade-slider_arrow cascade-slider_arrow-left" data-action="prev"><img src="https://agenciafagulha.com.br/wp-content/uploads/2019/12/chvron-left.svg" type="image/svg+xml"></span>
+    <span class="cascade-slider_arrow cascade-slider_arrow-right" data-action="next"><img src="https://agenciafagulha.com.br/wp-content/uploads/2019/12/chvron-right.svg" type="image/svg+xml"></span>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    (function() {
+      const slider = document.getElementById("cascade-slider");
+      const items = slider.querySelectorAll(".cascade-slider_item");
+      const dots = slider.querySelectorAll(".cascade-slider_dot");
+      const arrowLeft = slider.querySelector(".cascade-slider_arrow-left");
+      const arrowRight = slider.querySelector(".cascade-slider_arrow-right");
+
+      let currentIndex = 0;
+
+      const updateSlider = (newIndex) => {
+        // Ensure the index is within bounds
+        currentIndex = (newIndex + items.length) % items.length;
+
+        items.forEach((item, index) => {
+          item.classList.remove("now", "prev", "next");
+          dots[index].classList.remove("cur");
+
+          if (index === currentIndex) {
+            item.classList.add("now");
+            dots[index].classList.add("cur");
+          } else if (index === (currentIndex + 1) % items.length) {
+            item.classList.add("next");
+          } else if (index === (currentIndex - 1 + items.length) % items.length) {
+            item.classList.add("prev");
+          }
+        });
+      };
+
+      // Add event listeners for the arrows
+      arrowLeft.addEventListener("click", () => {
+        updateSlider(currentIndex - 1);
+      });
+
+      arrowRight.addEventListener("click", () => {
+        updateSlider(currentIndex + 1);
+      });
+
+      // Add event listeners for the dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          updateSlider(index);
+        });
+      });
+
+      // Initialize the slider
+      updateSlider(currentIndex);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>Services</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background-color: white;
+      /* background: linear-gradient(to bottom right, #2e2e2e, #1a1a1a); */
+    }
+
+    .services-section {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background-color: rgb(255, 255, 255);
+    }
+
+    .services-section h1 {
+      font-size:15px;
+      position: absolute;
+      left:100px;
+      top:10px;
+      z-index:1000;
+      font-weight:bold;
+      color:#348061;
+      padding: 10px;
+      border-radius: 20px;
+      background-color: white;
+      border: 2px solid #348061;
+      text-transform: uppercase;
+
+    }
+    .services-section .ser_text {
+      z-index: 10;
+      font-size: 25px;
+      position: absolute;
+      top: 70px;
+      left:100px  ;
+  color: #5d6776;
+      width: 25vw;
+    
+    }
+    .active_service{
+      z-index: 1000000000;
+      font-size: 40px;
+      position: absolute;
+      top: 30px;
+      right:-100px;
+      width: 25vw;
+  color: #5d6776;
+
+    }
+
+    .carousel {
+      position: absolute;
+      bottom: 5%;
+      width: 90%;
+      height:auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* background-color: red; */
+    }
+
+    .carousel-track-container {
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .carousel-item {
+      flex: 0 0 45%; /* Show two items at a time */
+      height: 50vh;
+      margin: 0 0px;
+      /* background: #444; */
+      border-radius: 20px;
+      transform: scale(0.8);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      opacity:1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      color: white;
+      object-fit: cover;
+      object-position: center;
+    }
+    .carousel-item img{
+      border-radius: 20px;
+      object-fit: cover;
+      object-position:center;
+      width: 100%;
+      height: 100%;
+    }
+ 
+    .surgery{
+      width: 100%;
+      height: 100%;
+      background-color: green;
+      display: none;
+    }
+.surgery-active{
+  display: block;
+}
+    .carousel-item.active {
+      transform: scale(1.1);
+      opacity: 1;
+      background: #555;
+      border-radius:20px;
+
+
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top:-25%;
+      border:1px solid #5d6776;
+      background-color: white;
+      color:#5d6776;
+      font-size: 1.1rem;
+      font-weight:100;
+      z-index: 10;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .prev-btn {
+      left:2.5%;
+    }
+
+    .next-btn {
+      left: 7.5%;
+    }
+
+    .btns{
+position: absolute;
+/* padding: 20px; */
+z-index: 1000;
+top: 130px;
+right: 100px;
+}
+.btns button{
+  text-transform:capitalize;
+outline: none;
+border: none;
+margin: 15px;
+cursor: pointer;
+font-size:15px;
+
+}
+.book-apt{
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #348061;
+    color: white;
+    position: absolute;
+    left: -180px;
+  }
+  .learn{
+    border-radius: 20px;
+    padding: 10px;
+    color: #5d6776;
+    background-color: transparent;
+  }
+
+  .post_services {
+    width: 100%;
+    height: 100vh;
+    background-color: #fafcfe;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.post_services button {
+    position: absolute;
+    top: 6%;
+    left: 10%;
+    border:1px solid #5d6776;
+      background-color: white;
+      color:#5d6776;
+      font-size: 1.1rem;
+      font-weight:100;
+      z-index: 10;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+
+.ser {
+    width: 30%;
+    height: 80%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align children from the top */
+    align-items: center;
+    gap: 20px;
+    padding: 20px; /* Add padding inside the container */
+    margin-top: 100px;
+    color: white;
+    box-sizing: border-box; /* Ensure padding doesn’t affect the width/height */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.ser1 {
+    background-color: #676f7d;
+}
+
+.ser2 {
+    background-color: #6a847a;
+}
+
+.ser3 {
+    background-color: #8f8e80;
+}
+
+.ser h1 {
+    margin: 0; /* Reset default margin */
+    margin-bottom: 20px; /* Consistent spacing from the list */
+    font-size:30px; /* Adjust heading size */
+    text-align: center; /* Center the heading */
+    text-transform: capitalize;
+}
+
+.ser ul {
+    line-height: 1.8; /* Improve readability */
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Reset default padding */
+    width: 100%; /* Make the list take full width */
+    list-style: none; /* Remove default list styling */
+}
+
+.ser li {
+    margin-bottom: 10px; /* Add spacing between list items */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+.hidden {
+    display: none !important;
+}
+
+#bkapt{
+  position: absolute;
+  border: none;
+  outline: none;
+  left:80%;
+  z-index:20000;
+  font-size: 15px;
+  font-weight:300;
+  width: 12vw;
+  /* height: 2vw; */
+  border-radius: 20px;
+  color: white;
+  background-color: #348061;
+}
+
+.preservice {
+    width: 100%;
+    height: 100vh;
+    background-color: aqua;
+}
+
+.active_service2{
+  position: absolute;
+  z-index: 1000000000;
+      font-size: 40px;
+      right:420px;
+      width: 25vw;
+      top: -1%;
+  color: #5d6776;
+  font-weight: bolder;
+}
+
+@media (max-width: 480px) {
+
+.services-section{
+  /* background-color: #ff9f00; */
+  width: 100%;
+  display: flex;
+  padding:none;
+  flex-direction: column;
+position: relative;
+}
+.services-section > h1{
+  font-size:5vw;
+  position: absolute;
+  top:7%;
+  border-radius: 30px;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  text-align: center; /* Optional: Align text in the paragraph */
+}
+
+.services-section >.ser_text{
+  display: flex;
+  z-index:100;
+  /* background-color: salmon; */
+  width:100%;
+  height: 10vh;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  text-align: center; /* Optional: Align text in the paragraph */
+}
+
+.active_service{
+  /* background-color: saddlebrown; */
+  width: 100%;
+  position: absolute;
+  top: 41%;
+  left: 50%;
+  transform: translate(-50%, -300%);
+  text-align: center; /* Optional: Align text in the paragraph */
+;
+}
+.services-section .learn{
+font-size: 20px;
+}
+.services-section >.btns{
+  flex-direction: column;
+  /* background-color: rgb(60, 255, 0); */
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  position: absolute;
+  z-index:1;
+  top: 30%;
+  left: 0%;
+  text-align: center; /* Optional: Align text in the paragraph */
+;
+}
+.services-section .book-apt{
+  /* background-color: rgb(255, 0, 0); */
+  height: 5vh;
+  font-size: 20px;
+  padding:20px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100000;
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  text-align: center; /* Optional: Align text in the paragraph */
+;
+}
+.carousel {
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  overflow: hidden;
+  background-color: red;
+  margin-bottom:-5vh;
+}
+
+
+
+
+.carousel-track {
+  gap: 10px; /* Reduce spacing between items */
+  background-color: yellow;
+  height:55vh;
+}
+
+.carousel-item {
+  height: 40vh;
+   flex: 0 0 90%; 
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.carousel-item.active {
+  transform: scale(1); /* Enlarge active item */
+  opacity: 1;
+}
+
+.carousel-btn {
+  top: 80%; /* Position buttons vertically centered */
+  transform: translateY(0%);
+  z-index: 1000000;
+  scale: 1.1;
+  position: absolute;
+  /* background-color: yellow; */
+  left: 53%;
+}
+
+.prev-btn{
+  left: 40%;
+}
+
+
+
+
+
+
+
+
+}
+
+
+  </style>
+</head>
+<body>
+  
+
+  <div class="services-section">
+    <p class="ser_text">Experiance comprehensive healthcare through our special departments</p>
+    <p class="active_service">Surgery</p>
+
+    <div class="btns">
+      <button class="book-apt">book an appointment</button>
+      <button class="learn" id="learnMore">learn more <i class="fas fa-arrow-right"></i></button>
+    </div>
+    <h1>Services</h1>
+    <div class="carousel">
+      <button class="carousel-btn prev-btn"><i class="fas fa-arrow-left"></i></button>
+
+      <button class="carousel-btn next-btn"> <i class="fas fa-arrow-right"></i></button>
+      
+      <div class="carousel-track-container">
+        <div class="carousel-track">
+          <div class="carousel-item" data-service="surgery"><img src="https://img.freepik.com/free-photo/surgeons-passing-scissors-each-other_329181-19635.jpg?ga=GA1.1.225339577.1717430258&semt=ais_incoming" alt=""></div>
+          <div class="carousel-item carousel-item-2" data-service="orthopedic"><img src="https://img.freepik.com/premium-photo/physiotherapist-holding-skeleton-feet-model_107420-53154.jpg?ga=GA1.1.225339577.1717430258&semt=ais_incoming" alt=""></div>
+          <div class="carousel-item carousel-item-2" data-service="ENT"><img src="https://img.freepik.com/free-photo/doctor-using-inspection-spatula-examine-patient-throat-ent-doctor-doing-throat-exam-woman-patient-opened-her-mouth-throat-checkup_657921-246.jpg?ga=GA1.1.225339577.1717430258&semt=ais_incoming" alt=""></div>
+          <div class="carousel-item carousel-item-2" data-service="Pediatric"><img src="https://img.freepik.com/free-photo/african-american-pediatrician-doctor-analyzing-sickness-expertise-using-tablet_482257-26937.jpg?ga=GA1.1.225339577.1717430258&semt=ais_incoming" alt=""></div>
+          <div class="carousel-item carousel-item-2" data-service="Medicine"><img src="https://img.freepik.com/free-photo/flat-lay-arrangement-with-pills_23-2148504582.jpg?ga=GA1.1.225339577.1717430258&semt=ais_incoming" alt=""></div>
+          
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="post_services hidden">
+    <button id="back"><i class="fas fa-arrow-left"></i></button>
+    <button id="bkapt">book an appointment</button>
+    <p class="active_service2">Surgery</p>
+    <div class="ser ser1">
+      <h1>conditions treated</h1>
+      <ul>
+        <!-- <li></li> -->
+      </ul>
+    </div>
+    <div class="ser ser2">
+      <h1>
+        diagonostic procedure
+      </h1>
+      <ul>
+        <!-- <li></li> -->
+      </ul>
+    </div>
+    <div class="ser ser3">
+      <h1>treatment options</h1>
+      <ul>
+        <!-- <li></li> -->
+      </ul>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+  <script src="https://unpkg.com/split-type"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
+  <!-- <script>
+    const track = document.querySelector('.carousel-track');
+    const items = Array.from(track.children);
+    const nextButton = document.querySelector('.next-btn');
+    const prevButton = document.querySelector('.prev-btn');
+
+       let currentIndex = 1;
+
+function updateCarousel() {
+  items.forEach((item, index) => {
+    if (index === currentIndex) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
+
+  // Update the position of the carousel
+  const visibleIndex = currentIndex === 1 ? 0 : currentIndex - 1;
+  const offset = -visibleIndex * (items[0].offsetWidth + 10); // Adjust for item margin
+  track.style.transform = `translateX(${offset}px)`;
+
+
+
+
+// Update the active service name in the <p> element
+  const updateActiveServiceName = (elementClass) => {
+  const activeServiceElement = document.querySelector(elementClass);
+  const activeSlide = items[currentIndex];
+  const activeServiceName = activeSlide.getAttribute('data-service') || 'Unknown Service';
+
+  // Change the inner HTML of the <p> element
+  activeServiceElement.innerHTML = activeServiceName;
+};
+
+// Call the function for both elements
+updateActiveServiceName('.active_service2');
+updateActiveServiceName('.active_service');
+}
+
+
+
+
+
+
+nextButton.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % items.length;
+  updateCarousel();
+});
+
+prevButton.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + items.length) % items.length;
+  updateCarousel();
+});
+
+updateCarousel();
+
+
+    // Get the elements
+    const servicesSection = document.querySelector('.services-section');
+    const postServices = document.querySelector('.post_services');
+    const learnMoreButton = document.getElementById('learnMore');
+    const backButton = document.getElementById('back');
+
+    learnMoreButton.addEventListener('click', () => {
+      servicesSection.classList.add('hidden');
+      postServices.classList.remove('hidden');
+      postServices.classList.add('active');
+    });
+
+    backButton.addEventListener('click', () => {
+      postServices.classList.remove('active');
+      postServices.classList.add('hidden');
+      servicesSection.classList.remove('hidden');
+    });
+
+    learnMoreButton.addEventListener('click', () => {
+  // Get the current active carousel item
+  const activeItem = document.querySelector('.carousel-item.active');
+  
+  // Extract the service name from the data-service attribute of the active carousel item
+  const activeService = activeItem ? activeItem.getAttribute('data-service') : '';
+
+  // Content mapping for each service
+  const contentMapping = {
+    // surgery
+    surgery: {
+      conditions: [
+        "All types of hernia surgery", "Hydrocele surgery", "Appendix surgery", "Piles/Fissures/Fistula surgery (Open laser/Stapler method)",
+        "Gallbladder surgery", "Diabetic foot surgery", "Surgery of swelling/Abscess in kidney", "Surgery of swelling or abscess on any part of the body",
+        "All types of burn treatment"
+      ],
+      diagnostic: ["Blood/Urine reports", "Biopsy", "UPPER GI SCOPY", "LOWER GI SCOPY", "X-RAY", "Ultrasound"],
+      treatment: ['Medication/Surgeries', 'Post-operative care', 'Physiotherapy', 'Rehabilitation'],
+    },
+
+    // orthopedic
+    orthopedic: {
+      conditions: [
+        "Joints/Bone/Muscle pain", "Joint effusion (Water/Pus/Blood collection in joint space)", "Chronic backache", "Arthritis"
+      ],
+      diagnostic: ["Synovial fluids examination", "Blood/Urine reports", "X-ray", "Ultrasound"],
+      treatment: ["Medication", "Physiotherapy", "Rehabilitation", "Synovial fluid tapping"],
+    },
+
+    // ENT
+    ENT: {
+      conditions: [
+        "Chronic rhinitis/cough/throat pain", "Chronic oral ulceration", "Sinusitis", "Ear pain/Ear discharge"
+      ],
+      diagnostic: ["Otoscopy", "Laryngoscopy", "Nasal endoscopy", "Nasal swab/Throat swab"],
+      treatment: ["Medication", "Physiotherapy (speech/facial palsy/vestibular)"],
+    },
+
+    // Pediatric
+    Pediatric: {
+      conditions: [
+        "All types of fever (Dengue/Malaria/Typhoid/Pyrexia of unknown origin)", "Pneumonia/Cough", "Loose motion/Vomiting", "Common Cold and Allergies"
+      ],
+      diagnostic: ["Blood/Urine reports", "X-ray", "Ultrasound"],
+      treatment: ["Medication", "Nebulizer"],
+    },
+
+    // Medicine
+    Medicine: {
+      conditions: [
+        "Medication", "Nebulizer", "Blood Pressure & Sugar Levels", "Heart-Related Conditions", "Respiratory Issues", "Blood Disorders",
+        "Emergency Situations: Care for snakebites and poisoning", "Urinary System Conditions", "Abdominal & Digestive Issues", "Infectious Diseases"
+      ],
+      diagnostic: ["ECG", "Blood/Urine reports", "Body fluids reports", "Sputum reports", "2D ECHO", "X-RAY/Ultrasound", "Blood/Urine reports", "Biopsy", "Allergy Test"],
+      treatment: ["Medication", "Intervention procedure (Ascitic tap/Pleural tap/Lumbar puncture/Spinal fluid tap)", "Physiotherapy", "Nebulizer"],
+    },
+  };
+
+  // Get the corresponding content based on the active service
+  const content = contentMapping[activeService];
+
+  if (content) {
+    // Populate the content in the post_services section
+    const conditionsList = postServices.querySelector('.ser1 ul');
+    const diagnosticList = postServices.querySelector('.ser2 ul');
+    const treatmentList = postServices.querySelector('.ser3 ul');
+
+    // Clear previous content
+    conditionsList.innerHTML = '';
+    diagnosticList.innerHTML = '';
+    treatmentList.innerHTML = '';
+
+    // Add new content
+    content.conditions.forEach((condition) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<i class="fas fa-check"></i> ${condition}`;
+  conditionsList.appendChild(li);
+});
+
+content.diagnostic.forEach((procedure) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<i class="fas fa-check"></i> ${procedure}`;
+  diagnosticList.appendChild(li);
+});
+
+content.treatment.forEach((option) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<i class="fas fa-check"></i> ${option}`;
+  treatmentList.appendChild(li);
+});
+
+  }
+
+  // Switch to the post_services section
+  servicesSection.classList.add('hidden');
+  postServices.classList.remove('hidden');
+});
+
+
+
+
+
+// gsap Animation
+
+  // Ensure GSAP is included
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate the carousel when it enters the viewport
+  // Animate the carousel when it enters the viewport
+  gsap.from(".carousel-track-container", {
+    x: 1000, // Start from off-screen to the right
+    opacity: 0,
+    duration: 3,
+    ease: "elastic.out(1,0.3)",
+    scrollTrigger: {
+      trigger: ".services-section", // Trigger animation when the section enters the viewport
+      start: "top center", // Animation starts when the top of the section is in the center of the viewport
+      end: "bottom center",
+      // scrub: true, // Scrub animation as you scroll
+    },
+  });
+
+  document.getElementById('learnMore').addEventListener('click', function() {
+    // Animating the "post_services" div to slide into view
+    gsap.fromTo('.post_services', 
+      {
+        opacity: 0,
+        y: 100
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power2.out'
+      });
+
+   
+  });
+  gsap.from(".active_service",{
+    y:50,
+    opacity:0
+  })
+  
+  
+</script> -->
+
+  <script>
+ 
+  const track = document.querySelector('.carousel-track');
+const items = document.querySelectorAll('.carousel-item');
+const activeServiceElement = document.querySelector('.active_service'); // Select the element where active_service text is displayed
+let activeIndex = 0;
+
+// Add unique data attributes or identifiers to your carousel items
+const services = ["Surgery", "Orthopedic", "ENT", "Pediatric","Medicine"]; // Replace with actual names
+
+// Function to update active item and center it
+function updateCarousel() {
+  items.forEach((item, index) => {
+    if (index === activeIndex) {
+      item.classList.add('active');
+      const offset = -(item.offsetWidth + 10) * activeIndex + (window.innerWidth - item.offsetWidth) / 2;
+      track.style.transform = `translateX(${offset}px)`;
+
+      // Update the active_service text
+      activeServiceElement.textContent = services[index]; // Update based on the activeIndex
+    } else {
+      item.classList.remove('active');
+    }
+  });
+}
+
+// Event listeners for buttons
+document.querySelector('.prev-btn').addEventListener('click', () => {
+  activeIndex = (activeIndex - 1 + items.length) % items.length;
+  updateCarousel();
+});
+
+document.querySelector('.next-btn').addEventListener('click', () => {
+  activeIndex = (activeIndex + 1) % items.length;
+  updateCarousel();
+});
+
+// Initial setup
+updateCarousel();
+
+
+    
+    
+    
+
+    
+    </script>
+</body>
+</html>

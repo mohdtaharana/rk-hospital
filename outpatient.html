@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <style>
+    :root {
+      --font-primary: "Montserrat", serif;
+      --font-secondary: 'Lora', serif;
+      --font-mono: 'Courier New', monospace;
+    }
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .main{
+      width: 100%;
+      height: 100%;
+      padding: 5vw 20vw;
+      font-family: var(--font-primary);
+      background-color:#cae8f8;
+    }
+    .prebottom h1,.center h1, .bottom h1 {
+      margin-bottom: 20px;
+    }
+    .impatient{
+      width: 100%;
+      height:190vh;
+      padding:3vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-direction: column;
+      background-color:#cae8f8;
+      color: white;
+    }
+    .top{
+      width: 100%;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .top h1{
+      text-transform: uppercase;
+    }
+    .left{
+      display: flex;
+      height: 100%;
+      flex-basis: 60%;
+      background-color:#4f5765;
+      border-radius:20px;
+      display: flex;
+      justify-content: center;
+      font-size: 25px;
+      align-items: center;
+      flex-direction: column;
+    }
+    .right{
+      display: flex;
+      flex-basis: 40%;
+      font-size: 25px;
+      height: 100%;
+      background-color:#348061;
+      border-radius:30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding:20px;
+    }
+    .center{
+      width: 100%;
+      height:60vh;
+      background-color:#978677;
+      border-radius:30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding:20px;
+    }
+    .prebottom{
+      background-color:#787aae;
+      width: 100%;
+      height:60vh;
+      border-radius:30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding:30px;
+    }
+    .bottom{
+      width: 100%;
+      height:60vh;
+      border-radius:30px;
+      background-color:#c28696;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding:30px;
+    }
+ /* Responsive Styles for 480px */
+ @media screen and (max-width: 480px) {
+    .main {
+padding: 0px;
+overflow-x: hidden;
+
+    }
+
+    .impatient {
+    padding: 0px;
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      align-self:center;
+      padding: 15px;
+      width: 100%;
+      height:210vh;
+    }
+
+    .top {
+      flex-direction: column;
+      height:50vh;
+      gap: 10px;
+      /* margin-bottom: 10vh; */
+      width: 100%;
+
+      /* background-color: red; */
+    }
+
+    .right {
+      flex-basis: 100%;
+      font-size: 20px;
+      padding: 15px;
+    }
+    .left {
+      font-size: 20px;
+      width: 100%;
+      padding: 15px;
+    }
+
+    .center {
+      font-size: 18px;
+      height:50vh;
+      width: 100%;
+
+    }
+
+    .bottom {
+      font-size: 18px;
+      width: 100%;
+      /* padding: 25px; */
+      height: 40vh;
+      margin-bottom:13vh;
+    }
+.center{
+  width: 100%;
+  height: 40vh;
+}
+    .bottom ul {
+      font-size: 16px;
+    }
+    .prebottom{
+      width:100%;
+      height:40vh;
+    }
+  }
+
+
+   /* Responsive Styles for 375px */
+   @media screen and (max-width: 375px) {
+    .main {
+padding: 0px;
+overflow-x: hidden;
+
+    }
+
+    .impatient {
+    
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      align-self:center;
+      padding: 15px;
+      width: 100%;
+      height:300vh;
+    }
+
+    .top {
+      flex-direction: column;
+      height:100vh;
+      gap: 20px;
+      /* margin-bottom: 10vh; */
+      width: 100%;
+margin-top: 10vh;
+      /* background-color: red; */
+    }
+
+    .left, .right {
+      flex-basis: 100%;
+      font-size: 20px;
+      padding: 15px;
+    }
+
+    .center {
+      /* font-size: 18px; */
+      height: 100vh;
+      width: 100%;
+      /* background-color: red; */
+
+    }
+
+    .bottom {
+      font-size: 18px;
+      width: 100%;
+      /* padding: 25px; */
+      height: 120vh;
+    }
+
+    .bottom ul {
+      font-size: 16px;
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="impatient">
+      <div class="top">
+        <div class="left">
+          <h1>outpatient</h1>
+        </div>
+        <div class="right">
+          <p>For patients
+            receiving outpatient
+            care, you will usually return home on the same day.</p>
+        </div>
+      </div>
+      <div class="center">
+        <h1> Admission Process</h1>
+        <p>
+          Our scheduling department will inform you of your appointment date and time. We advise allocating ample time for your examination or procedure, as emergencies can sometimes lead to minor scheduling adjustments. Please register at reception upon arrival
+        </p>
+      </div>
+      <div class="prebottom ">
+        <h1> discharge Process</h1>
+       <p>Following your outpatient procedure, you are typically free to leave on the same day. In rare instances, an overnight stay may be necessary. Our nursing team will provide attentive care until your discharge.</p>
+      </div>
+      <div class="bottom">
+        <h1>Post-Procedure Guidelines</h1>
+        <p>
+          Please arrange for someone to accompany you home, as you should not drive for 24 hours after anesthesia or treatment. For your safety, we also recommend avoiding any critical decisions, such as signing contracts, within 24 hours post-
+procedure
+        </p>
+       </div>
+    </div>
+  </div>
+
+  <script>
+    // GSAP Animations
+
+      // GSAP Animations
+  gsap.from(".left", {
+    x: "-50%", // Animate from off-screen to the left
+    opacity: 0, // Start with opacity 0
+    duration: 1.5, // Duration of the animation
+    // ease: "power3.out", // Easing function
+  });
+
+  gsap.from(".right", {
+    x: "50%", // Animate from off-screen to the right
+    opacity: 0, // Start with opacity 0
+    duration: 1.5, // Duration of the animation
+    // ease: "power3.out", // Easing function
+    delay: 0.3, // Delay to stagger animation
+  });
+
+  gsap.from(".center", {
+    x: 100, // Animate from below the viewport
+    opacity: 0, // Start with opacity 0
+    duration: 1.5, // Duration of the animation
+    // ease: "power3.out", // Easing function
+    delay: 0.6, // Delay to stagger animation
+  });
+
+  gsap.from(".prebottom", {
+    x:-100,
+    opacity: 0, // Start with opacity 0
+    duration: 1.5, // Duration of the animation
+    // ease: "elastic.out(1, 0.75)", // Elastic bounce effect
+    delay: 0.9, // Delay to stagger animation
+  });
+  gsap.from(".bottom", {
+    y:100,
+    opacity: 0, // Start with opacity 0
+    duration: 1.5, // Duration of the animation
+    // ease: "elastic.out(1, 0.75)", // Elastic bounce effect
+    delay: 0.9, // Delay to stagger animation
+  });
+  </script>
+</body>
+</html>

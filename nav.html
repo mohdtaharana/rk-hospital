@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar & Hero Section</title>
+  <link rel="icon" type="image/png" href="/images/logo-dark.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+  /* Font Families */
+  --font-primary: "Montserrat", serif;
+  --font-secondary: 'Lora', serif;
+  --font-mono: 'Courier New', monospace;}
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: var(--font-primary);
+    }
+  
+
+    .hero h1 {
+      color: white;
+      font-size: 3rem;
+    }
+
+    .hero p {
+      color: white;
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 100;
+      background: transparent;
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color:#56595f;
+    }
+
+    .navbar .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background:#56595f;
+      transition: 0.3s;
+    }
+
+    .hamburger span:first-child {
+      width: 23px;
+    }
+
+    .hamburger span:last-child {
+      width: 23px;
+    }
+
+    /* Fullscreen Nav */
+    .fullscreen-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background:white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 10;
+      transition: 0.5s;
+      text-transform: capitalize;
+    }
+
+    .fullscreen-nav.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .fullscreen-nav ul {
+      list-style: none;
+      text-align: center;
+    }
+
+    .fullscreen-nav ul li {
+      margin: 20px 0;
+      width:95vw;
+      height:50px;
+      line-height:50px;
+      border-radius: 10px;
+      /* background-color:#f3f3f3; */
+
+    }
+
+    .fullscreen-nav ul li a {
+      text-decoration: none;
+      color:#545860;
+      font-size: 1.5rem;
+      transition: 0.3s;
+    }
+
+    .fullscreen-nav ul li:hover {
+      background-color:#f3f3f3;
+
+    }
+
+    .fullscreen-nav .buttons {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .fullscreen-nav .buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      font-size:20px;
+      cursor: pointer;
+    }
+
+    .fullscreen-nav .buttons .book {
+      background-color:#2b7055;
+      color:white;
+      border-radius:30px;
+    }
+
+    .fullscreen-nav .buttons .explore {
+      background-color: transparent;
+      border: 1px solid #56595f;
+      color:#56595f;
+      border-radius:30px;
+
+    }
+
+    /* Hamburger Transform */
+    .hamburger.active span:first-child {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:last-child {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Remove Mobile-Only Restriction */
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 4rem;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+      }
+
+      .navbar .hamburger {
+        display: flex; /* Make hamburger menu visible on desktop */
+      }
+    }
+
+
+    .content {
+      /* background-color: green; */
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .content > video{
+      z-index:2;
+      width:97%;
+      /* scale:1.1; */
+      object-fit: cover;
+      /* margin-left:15vw; */
+      height:88%;
+      position: absolute;
+      margin-top: 65px;
+      border-radius: 20px;
+      filter: brightness(80%); 
+      /* transform: scaleX(-1); */
+    }
+    .leftcon{
+      /* background-color: rgb(204, 255, 20); */
+      width: 50%;
+      height: 60vh;
+      left:100px;
+      top: 150px;
+      position: absolute;
+      z-index:10;
+      /* padding: 10px 50px; */
+    }
+
+    .leftcon h1{
+  font-size: 35px;
+  margin-top: 30px;
+  color: white;
+  text-align: left;
+  text-transform: capitalize;
+  margin-left: 50px;
+
+
+}
+
+.leftcon p{
+  font-size: 16px;
+  margin-top: 30px;
+  font-weight: 500;
+  color: white;
+  text-align: left;
+  margin-left: 50px;
+
+}
+.hero-btns{
+  /* background-color: #00ff7f; */
+  width: 30vw;
+  display:flex;
+  margin-left:50px;
+  
+}
+.btn-apt{
+  padding: 10px;
+  background-color:#2f6f53;
+  font-size: 20px;
+  outline: none;
+  color: white;
+  margin-top: 30px;
+  text-transform: capitalize;
+  cursor: pointer;
+border-radius: 30px;
+border: none;
+
+}
+.btn-exp{
+  padding: 10px;
+  background-color:transparent;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  border: 2px solid white;
+  margin-top: 30px;
+  margin-left: 20px;
+  text-transform: capitalize;
+  cursor: pointer;
+  
+
+
+
+}
+
+
+.con-down{
+  /* width:40vw; */
+  /* background-color: green; */
+  margin-top: 30px;
+  display: flex;
+  width: 30vw;
+  /* justify-content: center; */
+  align-items: center;
+
+}
+.con-down p{
+  margin-bottom: 20px;
+  margin-left: 20px;
+  text-transform: capitalize;
+  text-align: left;
+  /* background-color: red; */
+}
+.images{
+  /* background-color: blue; */
+  display: flex;
+  margin-left: 60px;
+}
+.images img{
+  /* background-color: blue; */
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: -15px;
+  height: 60px;
+  margin-top: -10PX;
+  position: relative;
+  border: 2px solid white;
+}
+    .rightcon{
+      /* background-color: rgb(0, 66, 128); */
+      width: 50%;
+      height: 100vh;
+    }
+   
+
+  </style>
+</head>
+<body>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+   
+
+    <div class="content">
+      <!-- <img class="hero-image" src="/images/hero-dr.jpg" alt=""> -->
+       <video autoplay muted loop class="hero-image" src="https://videocdn.cdnpk.net/videos/7f70c9bc-f95f-4e95-b397-3edb13d4cef3/horizontal/previews/clear/small.mp4?token=exp=1737661688~hmac=70a211df2eb2ad38c3c60b228b8fcc2fc73a24093f5817d048197c2713ce9625"></video>
+      <div class="leftcon">
+        <h1>healing with heart,<br>
+          leading with excellence</h1>
+          <p>A multi-spciality healthcare solution with compassionate <br>care and advanced expertise
+        
+          </p>
+       <div class="hero-btns">   <a href="#book-apt"><button class="btn-apt" >book an appointment</button></a>
+        <a href="#services-section"> <button class="btn-exp"> explore services</button></a></div>
+   <div class="con-down">
+   <div class="images">
+    <img src="https://img.freepik.com/free-photo/medium-shot-doctor-wearing-lab-coat_23-2148816191.jpg?ga=GA1.1.225339577.1717430258&semt=ais_incoming_vrsd" alt="">
+    <img src="https://img.freepik.com/premium-photo/smiling-female-doctor-standing-crossing-hands-one-volor-background_953680-45073.jpg?ga=GA1.1.225339577.1717430258&semt=ais_incoming_vrsd" alt="">
+    <img src="https://img.freepik.com/premium-photo/indian-female-doctor_714173-1860.jpg?ga=GA1.1.225339577.1717430258&semt=ais_incoming_vrsd" alt="">
+    <img src="https://img.freepik.com/free-photo/young-bearded-male-doctor-wearing-white-coat-with-stethoscope-looking-camera-confused_141793-28210.jpg?ga=GA1.1.225339577.1717430258&semt=ais_incoming_vrsd" alt="">
+   </div>
+   <p>30+ certified <br> specialist</p>
+   </div>
+      </div>
+      <div class="rightcon"></div>
+    </div>
+  
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">LOGO</div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Fullscreen Navigation -->
+  <div class="fullscreen-nav">
+    <ul>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Philosophy</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Stay</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <div class="buttons">
+      <button class="book">Book an Appointment</button>
+      <button class="explore">Explore Services</button>
+    </div>
+  </div>
+
+</section>
+  <!-- JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const fullscreenNav = document.querySelector('.fullscreen-nav');
+
+
+const logo = document.querySelector('.logo'); // Select the logo element
+
+
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      fullscreenNav.classList.toggle('active');
+       // Toggle the opacity of the logo
+  if (logo) {
+    logo.style.opacity = logo.style.opacity === '0' ? '1' : '0';
+  }
+    });
+
+   // GSAP timeline animations
+const herotl = gsap.timeline();
+
+// Step 1: Animate the entire hero section with border-radius
+herotl.from(".content,.overlayy", {
+  opacity: 0, // Start with 0 opacity
+  scale: 0.7, // Start with smaller scale
+  borderRadius: "2%", // Start with rounded corners
+  duration: 2, // Duration of the animation
+  ease: "power3.out", // Smooth easing
+});
+// Step 3: Animate hero-left content (coming from the left)
+herotl.from(".leftcon > *:not(.images)", {
+  x: -50, // Slide from the left
+  opacity: 0, // Start with 0 opacity
+  duration: 1, // Duration for each element
+  ease: "power3.out", // Smooth easing
+  stagger: 0.1, // Delay between each element
+}, "-=1"); // Start slightly earlier for smooth flow
+
+// Step 4: Animate images inside the .images container
+herotl.from(".images img", {
+  x: -50, // Slide from the left
+  opacity: 0, // Start with 0 opacity
+  duration: 0.8, // Duration for each image
+  ease: "power3.out", // Smooth easing
+  stagger: 0.05, // Delay between each image
+},"-=1");
+
+// Step 5: Animate the paragraph inside con-down after images
+herotl.from(".con-down p", {
+  x: -50, // Slide up into view
+  opacity: 0, // Start with 0 opacity
+  duration: 1, // Duration for the animation
+  ease: "power3.out", // Smooth easing
+},"-=1");
+
+
+
+  </script>
+</body>
+</html>

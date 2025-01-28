@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0;
+    }
+    .carosel-slider{
+      width: 100%;
+      height: 100vh;
+      background-color: green;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+
+    }
+    .images-container{
+      width: 100%;
+      height: 100%;
+      margin-left:320vw;
+      /* background-color: rgb(38, 0, 128); */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      position: absolute;
+      gap:100px;
+      transition: transform 0.5s ease-in-out; /* Smooth transition */
+    }
+    .slider-controls{
+      width: 100%;
+      height: 10vh;
+      /* background-color: red; */
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 100px;
+      margin-top: 500px;
+    }
+    .slider-controls button{
+      width:100px;
+      border-radius: 20px;
+      outline: none;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="carosel-slider">
+    <div class="images-container">
+      <img src="/images/dr1.avif" alt="" class="item-1  items">
+      <img src="/images/dr1.avif" alt="" class="item-2  items">
+      <img src="/images/dr1.avif" alt="" class="item-3  items">
+      <img src="/images/dr1.avif" alt="" class="item-4  items">
+      <img src="/images/dr1.avif" alt="" class="item-5  items">
+      <img src="/images/dr1.avif" alt="" class="item-6  items">
+      <img src="/images/dr1.avif" alt="" class="item-7  items">
+    </div>
+    <div class="slider-controls">
+      <button class="prev">prev</button>
+      <button class="next">next</button>
+    </div>
+  </div>
+  <script>
+     const imagesContainer = document.querySelector('.images-container');
+    const items = document.querySelectorAll('.images-container img');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    const totalItems = items.length;
+    let index = -2;
+
+    function moveToSlide() {
+      imagesContainer.style.transform = `translateX(-${index * 55}%)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+      index--;
+      if (index < 0) {
+        index = totalItems - 1; // Wrap to the last image
+      }
+      moveToSlide();
+    });
+
+    nextButton.addEventListener('click', () => {
+      index++;
+      if (index >= totalItems) {
+        index = 0; // Wrap to the first image
+      }
+      moveToSlide();
+    });
+
+
+    
+  </script>
+</body>
+</html>

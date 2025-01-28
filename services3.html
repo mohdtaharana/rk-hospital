@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider and Post Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .slider {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+
+        .slide {
+            min-width: 100%;
+            transition: transform 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-size: 2rem;
+        }
+
+        .slide.active {
+            background-color: #ddd;
+        }
+
+        .post_service {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            background-color: #fff;
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+            transition: top 0.5s ease;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .post_service.active {
+            display: block;
+            top: 0;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider">
+    <div class="slide active" data-slide="ser1">Slide 1</div>
+    <div class="slide" data-slide="ser2">Slide 2</div>
+    <div class="slide" data-slide="ser3">Slide 3</div>
+</div>
+
+<div class="post_service" id="ser1">
+    <h2>Service 1</h2>
+    <ul>
+        <li>Service 1 - Feature A</li>
+        <li>Service 1 - Feature B</li>
+        <li>Service 1 - Feature C</li>
+    </ul>
+    <button class="back-btn">Back</button>
+</div>
+
+<div class="post_service" id="ser2">
+    <h2>Service 2</h2>
+    <ul>
+        <li>Service 2 - Feature A</li>
+        <li>Service 2 - Feature B</li>
+        <li>Service 2 - Feature C</li>
+    </ul>
+    <button class="back-btn">Back</button>
+</div>
+
+<div class="post_service" id="ser3">
+    <h2>Service 3</h2>
+    <ul>
+        <li>Service 3 - Feature A</li>
+        <li>Service 3 - Feature B</li>
+        <li>Service 3 - Feature C</li>
+    </ul>
+    <button class="back-btn">Back</button>
+</div>
+
+<script>
+    const slides = document.querySelectorAll('.slide');
+    const postServices = document.querySelectorAll('.post_service');
+    let activeIndex = 0;
+
+    slides.forEach((slide, index) => {
+        slide.addEventListener('click', () => {
+            activeIndex = index;
+            slides.forEach(s => s.classList.remove('active'));
+            slide.classList.add('active');
+
+            postServices.forEach(service => {
+                service.classList.remove('active');
+                if (service.id === slide.dataset.slide) {
+                    service.classList.add('active');
+                }
+            });
+
+            document.querySelector('.slider').style.display = 'none';
+        });
+    });
+
+    document.querySelectorAll('.back-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            postServices.forEach(service => service.classList.remove('active'));
+            document.querySelector('.slider').style.display = 'flex';
+        });
+    });
+</script>
+
+</body>
+</html>
