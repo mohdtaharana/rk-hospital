@@ -53,27 +53,9 @@ hamburger.addEventListener('click', () => {
   }
 });
 
-// Close navbar when user scrolls
-window.addEventListener('scroll', () => {
-  if (fullscreenNav.classList.contains('active')) {
-    fullscreenNav.classList.remove('active');
-    hamburger.classList.remove('active');
-    // Reset the logo opacity
-    logo.style.opacity = '1';
-  }
-});
 
-// Close navbar when any link is clicked
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    if (fullscreenNav.classList.contains('active')) {
-      fullscreenNav.classList.remove('active');
-      hamburger.classList.remove('active');
-      // Reset the logo opacity
-      logo.style.opacity = '1';
-    }
-  });
-});
+
+
 
 // GSAP timeline animations (for hero section)
 const herotl = gsap.timeline();
@@ -82,7 +64,7 @@ const herotl = gsap.timeline();
 herotl.from(".content,.overlayy", {
   opacity: 0, // Start with 0 opacity
   scale: 0.7, // Start with smaller scale
-  borderRadius: "2%", // Start with rounded corners
+  borderRadius: "0%", // Start with rounded corners
   duration: 2, // Duration of the animation
   ease: "power3.out", // Smooth easing
 });
@@ -1015,7 +997,7 @@ mm.add("(max-width: 480px)", () => {
   const tlMobile = gsap.timeline({
     scrollTrigger: {
       trigger: ".about",
-      start: "0% 0%", // Adjusted for smaller screens
+      start: "-40% 0%", // Adjusted for smaller screens
       end: "100% 100%",
       // scrub: true, // Uncomment for smooth scroll
       // markers: true, // Debug markers (optional)
