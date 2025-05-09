@@ -992,7 +992,7 @@ timeline
     
 });
 
-// Mobile animations
+
 mm.add("(max-width: 480px)", () => {
   const tlMobile = gsap.timeline({
     scrollTrigger: {
